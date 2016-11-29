@@ -1,0 +1,21 @@
+{
+  "name": "work-setup",
+  "version": "1.0.0",
+  "description": "Work Setup with docker and kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'test'",
+    "start": "echo 'start'",
+    "build": "echo 'build'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurifrl/work-setup.git"
+  },
+  "author": "yurifreirelima@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yurifrl/work-setup/issues"
+  },
+  "homepage": "https://github.com/yurifrl/work-setup#readme"
+}

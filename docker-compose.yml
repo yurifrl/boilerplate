@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    image: mhart/alpine-node
+    command: npm run start
+    working_dir: /web
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/web
+      - node_modules:/web/node_modules
+    environment:
+      APP_ENV: development
+
+volumes:
+  node_modules:
+    external: true
