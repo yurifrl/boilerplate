@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: work-setup
+  name: boilerplate
   labels:
-    app: work-setup
+    app: boilerplate
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 80
   selector:
-    name: work-setup
+    name: boilerplate

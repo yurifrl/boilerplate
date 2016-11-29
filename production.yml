@@ -1,5 +1,5 @@
 version: '2'
 services:
   web:
-    image: work-setup
+    image: boilerplate
     build: .

@@ -26,16 +26,16 @@ docker-compose run --rm web npm run build --production
 docker-compose -f ../production.yml build
 
 # 6. Tag the docker image
-docker tag work-setup "gcr.io/yebo-project/work-setup:$VERSION"
-docker tag work-setup "gcr.io/yebo-project/work-setup:latest"
+docker tag boilerplate "gcr.io/yebo-project/boilerplate:$VERSION"
+docker tag boilerplate "gcr.io/yebo-project/boilerplate:latest"
 
 # 7. Pushes to kubernetes
-dg gcloud docker push "gcr.io/yebo-project/work-setup:$VERSION"
-dg gcloud docker push "gcr.io/yebo-project/work-setup:latest"
+dg gcloud docker push "gcr.io/yebo-project/boilerplate:$VERSION"
+dg gcloud docker push "gcr.io/yebo-project/boilerplate:latest"
 
 # 8. Prints the run command
-echo "docker run --rm -ti -p 80:80 -p 443:443 gcr.io/yebo-project/work-setup:v$VERSION"
+echo "docker run --rm -ti -p 80:80 -p 443:443 gcr.io/yebo-project/boilerplate:v$VERSION"
 
 # 9. Prints rolling update command
-echo "dg kubectl rolling-update work-setup --image=gcr.io/yebo-project/work-setup:$VERSION"
+echo "dg kubectl rolling-update boilerplate --image=gcr.io/yebo-project/boilerplate:$VERSION"
 

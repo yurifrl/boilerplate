@@ -16,7 +16,7 @@ dg() {
 }
 
 #
-dg gcloud compute disks create --size=200GB --zone=<your-cluster-zone> work-setup-disk
+dg gcloud compute disks create --size=200GB --zone=<your-cluster-zone> boilerplate-disk
 dg gcloud compute disks list
 
 # 4. Build process
@@ -26,10 +26,10 @@ docker-compose run --rm web npm run build --production
 docker-compose -f ../production.yml build
 
 # 6. Tag the docker image
-docker tag work-setup "gcr.io/yebo-project/work-setup:latest"
+docker tag boilerplate "gcr.io/yebo-project/boilerplate:latest"
 
 # 7. Pushes to kubernetes
-dg gcloud docker push "gcr.io/yebo-project/work-setup:latest"
+dg gcloud docker push "gcr.io/yebo-project/boilerplate:latest"
 
 # 8. Prints the posible comands
 dg kubectl create -f ../kube/rc.yml

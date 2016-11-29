@@ -1,5 +1,5 @@
 {
-  "name": "work-setup",
+  "name": "boilerplate",
   "version": "1.0.0",
   "description": "Work Setup with docker and kubernetes",
   "main": "index.js",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yurifrl/work-setup.git"
+    "url": "git+https://github.com/yurifrl/boilerplate.git"
   },
   "author": "yurifreirelima@outlook.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yurifrl/work-setup/issues"
+    "url": "https://github.com/yurifrl/boilerplate/issues"
   },
-  "homepage": "https://github.com/yurifrl/work-setup#readme"
+  "homepage": "https://github.com/yurifrl/boilerplate#readme"
 }

@@ -15,7 +15,7 @@ dg() {
     --volumes-from gcloud-config yurifl/gcloud $@
 }
 
-dg gcloud compute disks delete --zone=<your-cluster-zone> work-setup-disk
+dg gcloud compute disks delete --zone=<your-cluster-zone> boilerplate-disk
 dg gcloud compute disks list
 
 dg kubectl delete -f ../kube/svc.yml
