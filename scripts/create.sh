@@ -1,11 +1,14 @@
 #!/bin/bash
 
-# 1. Use deploy directory as working directory
+# 1. Halt on any error
+set -e
+
+# 2. Set zone
+ZONE=us-east1-d
+
+# 3. Use deploy directory as working directory
 parent_path=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
 cd "$parent_path"
-
-# 2. Halt on any error
-set -e
 
 # 3. Kubernetes in container
 dg() {
@@ -16,7 +19,7 @@ dg() {
 }
 
 #
-dg gcloud compute disks create --size=200GB --zone=<your-cluster-zone> boilerplate-disk
+dg gcloud compute disks create --size=10GB --zone=$ZONE boilerplate-disk
 dg gcloud compute disks list
 
 # 4. Build process

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 1. Use deploy directory as working directory
-parent_path=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
-cd "$parent_path"
-
-# 2. Halt on any error
+# 1. Halt on any error
 set -e
+
+# 2. Use deploy directory as working directory
+parent_path=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
+cd $parent_path
 
 # 3. Kubernetes in container
 dg() {
@@ -19,23 +19,23 @@ dg() {
 /usr/bin/vim ../VERSION
 VERSION=$(cat ../VERSION)
 
-# 4. Build process
+# 5. Build process
 docker-compose run --rm web npm run build --production
 
-# 5. Creates the image
+# 6. Creates the image
 docker-compose -f ../production.yml build
 
-# 6. Tag the docker image
+# 7. Tag the docker image
 docker tag boilerplate "gcr.io/yebo-project/boilerplate:$VERSION"
 docker tag boilerplate "gcr.io/yebo-project/boilerplate:latest"
 
-# 7. Pushes to kubernetes
+# 8. Pushes to kubernetes
 dg gcloud docker push "gcr.io/yebo-project/boilerplate:$VERSION"
 dg gcloud docker push "gcr.io/yebo-project/boilerplate:latest"
 
-# 8. Prints the run command
+# 9. Prints the run command
 echo "docker run --rm -ti -p 80:80 -p 443:443 gcr.io/yebo-project/boilerplate:v$VERSION"
 
-# 9. Prints rolling update command
+# 10. Prints rolling update command
 echo "dg kubectl rolling-update boilerplate --image=gcr.io/yebo-project/boilerplate:$VERSION"
 
