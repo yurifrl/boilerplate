@@ -34,6 +34,6 @@ docker tag $NAME gcr.io/yebo-project/$NAME:\latest
 dg gcloud docker push gcr.io/yebo-project/$NAME:\latest
 
 #
-echo "dg kubectl create secret generic tls-$NAME-certs --from-file=./certs"
+echo "dg kubectl create secret generic tls-$NAME-certs --from-file=./tls"
 echo "dg kubectl get secrets tls-$NAME-certs -o yaml >> secrets.yml"
 echo "dg kubectl apply -f ./config/"
